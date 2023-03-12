@@ -1,20 +1,32 @@
-// Задан целочисленный список ArrayList. Найти минимальное, максимальное и среднее ариф. из этого списка.
+import java.util.Arrays;
+import java.util.LinkedList;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.*;
+// Реализуйте очередь с помощью LinkedList со следующими методами:
 
 public class task2 {
     public static void main(String[] args) {
-        ArrayList<Integer> myList = new ArrayList<>(20);
-        for (int i = 0; i < 20; i++) {
-            myList.add(new Random().nextInt(0, 100));
-        }
-        System.out.println(myList);
-        int min = Collections.min(myList);
-        int max = Collections.max(myList);
-        double avrg = myList.stream().mapToDouble(a -> a).sum() / myList.size();
-        NumberFormat numFormat = new DecimalFormat("#.######");
-        System.out.printf("min: %d, max: %d, average: %s\n", min, max, numFormat.format(avrg));
+        LinkedList<Object> list = new LinkedList<>(Arrays.asList("hello", "world", 43, 4));
+        System.out.println(list);
+
+        System.out.println("enqueue:");
+        System.out.println(enqueue(list, "hi"));
+        System.out.println();
+
+        System.out.println("dequeue:");
+        System.out.println(dequeue(list));
+        System.out.println();
+
+        System.out.println("first:");
+        System.out.println(first(list));
+
+    }
+    public static Object enqueue(LinkedList<Object> list, Object element) {
+        return list.offer(element);
+    }
+    public static Object dequeue(LinkedList<Object> list) {
+        return list.poll();
+    }
+    public static Object first(LinkedList<Object> list) {
+        return list.peek();
     }
 }

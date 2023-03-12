@@ -1,21 +1,20 @@
-//Пусть дан произвольный список целых чисел, удалить из него чётные числа
+import java.util.Arrays;
+import java.util.LinkedList;
 
-import java.util.ArrayList;
-import java.util.Random;
+// Пусть дан LinkedList с несколькими элементами. Реализуйте метод(не void), который вернет “перевернутый” список.
 
 public class task1 {
     public static void main(String[] args) {
-        ArrayList<Integer> myList = new ArrayList<>(20);
-        for (int i = 0; i < 20; i++) {
-            myList.add(new Random().nextInt(0, 100));
-        }
-        System.out.println(myList);
-        for (int i = myList.size() - 1; i >= 0; i--) {
-            if (myList.get(i) % 2 == 0) {
-                myList.remove(i);
-            }
-        }
-        System.out.println(myList);
+        LinkedList<Object> list = new LinkedList<>(Arrays.asList("hello", "world", 43, 4));
+        System.out.println(list);
+        System.out.println(reverseList(list));
     }
+    public static Object reverseList(LinkedList<Object> list) {
+        for (int i = 0; i < list.size(); i++) {
+            list.add(list.size() - i, list.get(0));
+            list.remove();
+        }
 
+        return list;
+    }
 }
